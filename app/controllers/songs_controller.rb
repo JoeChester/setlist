@@ -4,12 +4,21 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+    @songs = Song.where(:user => current_user)
   end
 
   # GET /songs/1
   # GET /songs/1.json
   def show
+    respond_to do |format|
+      if @song.user != current_user
+        format.html { redirect_to songs_url, notice: 'You can not show songs of other users.' }
+        format.json { head :no_content }
+      else
+        format.html
+        format.json { render json: @song }
+      end
+    end
   end
 
   # GET /songs/new
@@ -25,6 +34,7 @@ class SongsController < ApplicationController
   # POST /songs.json
   def create
     @song = Song.new(song_params)
+    @song.user = current_user
 
     respond_to do |format|
       if @song.save
@@ -58,6 +68,16 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to songs_url, notice: 'Song was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  #GET /songs/random
+  #GET /songs/random.json
+  def random
+    @song = Song.where(:user => current_user).sample
+    respond_to do |format|
+      format.html
+      format.json { render json: @song }
     end
   end
 
