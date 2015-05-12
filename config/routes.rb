@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :playlists
+  resources :gigs
   devise_for :users
   resources :songs
   # The priority is based upon order of creation: first created -> highest priority.

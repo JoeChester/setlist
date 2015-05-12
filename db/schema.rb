@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512130012) do
+ActiveRecord::Schema.define(version: 20150512172251) do
+
+  create_table "gigs", force: :cascade do |t|
+    t.datetime "date"
+    t.string   "location"
+    t.text     "comment"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "playlist_id"
+  end
+
+  add_index "gigs", ["playlist_id"], name: "index_gigs_on_playlist_id"
+  add_index "gigs", ["user_id"], name: "index_gigs_on_user_id"
+
+  create_table "playlists", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "playlists", ["user_id"], name: "index_playlists_on_user_id"
 
   create_table "songs", force: :cascade do |t|
     t.string   "title"
