@@ -1,0 +1,32 @@
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @song.artist %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @song.rating %>
+</p>
+
+<p>
+  <strong>Last practiced:</strong>
+  <%= @song.last_practiced %>
+</p>
+
+<p>
+  <strong>Number of practices:</strong>
+  <%= @song.number_of_practices %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @song.comment %>
+</p>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>

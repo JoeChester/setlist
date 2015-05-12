@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  artist: MyString
+  rating: 1
+  last_practiced: 2015-05-12 14:34:42
+  number_of_practices: 1
+  comment: MyText
+
+two:
+  title: MyString
+  artist: MyString
+  rating: 1
+  last_practiced: 2015-05-12 14:34:42
+  number_of_practices: 1
+  comment: MyText
