@@ -28,9 +28,6 @@
     <%= f.collection_select :playlist_id, Playlist.where(:user => current_user), :id, :name%>
   </div>
 
-
-
-
   <div class="actions">
     <%= f.submit %>
   </div>

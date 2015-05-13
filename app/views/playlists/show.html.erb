@@ -10,5 +10,12 @@
   <%= @playlist.description %>
 </p>
 
+<p>
+<strong>Songs:</strong><br>
+<% @playlist.songs.each do |song| %>
+  <%= song.title %><br>
+<% end %>
+</p>
+
 <%= link_to 'Edit', edit_playlist_path(@playlist) %> |
 <%= link_to 'Back', playlists_path %>
