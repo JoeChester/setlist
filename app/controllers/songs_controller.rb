@@ -83,6 +83,61 @@ class SongsController < ApplicationController
     end
   end
 
+  #GET /song/1/practice
+  #GET /song/1/practice.json
+  def practice
+    set_song()
+    respond_to do |format|
+      if @song.user != current_user
+        format.html { redirect_to songs_url, notice: 'You can not show songs of other users.' }
+        format.json { head :no_content }
+      else
+        @song.last_practiced = DateTime.now
+        @song.number_of_practices += 1
+        @song.save
+        format.html
+        format.json { render json: @song }
+      end
+    end
+  end
+
+  #GET /song/1/upvote
+  #GET /song/1/upvote.json
+  def upvote
+    set_song()
+    respond_to do |format|
+      if @song.user != current_user
+        format.html { redirect_to songs_url, notice: 'You can not show songs of other users.' }
+        format.json { head :no_content }
+      else
+        @song.rating += 1
+        @song.save
+        format.html
+        format.json { render json: @song }
+      end
+    end
+  end
+
+  #GET /song/1/downvote
+  #GET /song/1/downvote.json
+  def downvote
+    set_song()
+    respond_to do |format|
+      if @song.user != current_user
+        format.html { redirect_to songs_url, notice: 'You can not show songs of other users.' }
+        format.json { head :no_content }
+      else
+        if @song.rating > 0
+          @song.rating -= 1
+          @song.save
+        end
+        format.html
+        format.json { render json: @song }
+      end
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_song

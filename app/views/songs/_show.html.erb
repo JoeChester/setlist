@@ -17,23 +17,15 @@
       <%= @song.comment %>
     </p>
     <div class="sl-grey">
-    Last practiced: <%= @song.last_practiced.strftime("%d.%m.%Y") %> | <%= @song.number_of_practices %> times
+    Last practiced: <%= @song.last_practiced.strftime("%d.%m.%Y") %> | <%= pluralize(@song.number_of_practices, 'practice') %>
     </div>
   </div>
   <div class="panel-footer">
     <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-default">Left</button>
-      <button type="button" class="btn btn-default">Middle</button>
-      <button type="button" class="btn btn-default">Right</button>
+      <%= link_to '<span class="ion-ios-heart"></span>'.html_safe + @song.rating.to_s, [:upvote, @song], class: "btn btn-primary btn-lg" %>
+      <%= link_to '<span class="ion-ios-heart-outline"></span>'.html_safe,  [:downvote, @song], class: "btn btn-primary btn-lg" %>
+      <%= link_to '<span class="ion-play"></span>'.html_safe, [:practice, @song], class: "btn btn-primary btn-lg" %>
+      <%= link_to '<span class="ion-edit"></span>'.html_safe, edit_song_path(@song), class: "btn btn-primary btn-lg" %>
     </div>
   </div>
 </div>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @song.rating %>
-</p>
-
-
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>

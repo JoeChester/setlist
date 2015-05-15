@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   resources :playlists
   resources :gigs
   devise_for :users
-  resources :songs
+  resources :songs do
+    member do
+      get 'practice'
+      get 'upvote'
+      get 'downvote'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
