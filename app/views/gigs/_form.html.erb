@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :date %><br>
-    <%= f.datetime_select :date, {}, {:class => 'custom-dateselect'}  %>
+    <%= f.datetime_select :date, {order: [:day, :month, :year, :hour, :minute]}, {:class => 'custom-dateselect'}  %>
   </div>
   <div class="form-group">
     <%= f.label :location %><br>
