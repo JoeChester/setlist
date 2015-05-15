@@ -1,6 +1,4 @@
-<h1>Editing Playlist</h1>
+<h3>Editing Playlist</h3>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @playlist %> |
-<%= link_to 'Back', playlists_path %>
+<%= render partial: 'form', :locals => {:buttontext => "Save"} %><br>
+<%= link_to 'Delete Playlist', @playlist, method: :delete, class: "btn btn-danger newmargin" %> <br>

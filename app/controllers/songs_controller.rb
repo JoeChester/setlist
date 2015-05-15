@@ -4,7 +4,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.where(:user => current_user).order(title: :asc)
+    @songs = Song.where(:user => current_user).order(artist: :asc)
   end
 
   # GET /songs/1

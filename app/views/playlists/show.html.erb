@@ -1,21 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @playlist.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @playlist.description %>
-</p>
-
-<p>
-<strong>Songs:</strong><br>
-<% @playlist.songs.each do |song| %>
-  <%= song.title %><br>
-<% end %>
-</p>
-
-<%= link_to 'Edit', edit_playlist_path(@playlist) %> |
-<%= link_to 'Back', playlists_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="list-group list-group-item">
+      <div class="row">
+        <div class="col-md-6">
+          <h4 class="list-group-item-heading"><%= @playlist.name %></h4>
+          <p class="list-group-item-text"><%= @playlist.description %></p>
+        </div>
+        <div class="col-md-6">
+          <%= link_to '<span class="ion-edit"></span>'.html_safe, edit_playlist_path(@playlist), class: "btn btn-default btn-lg pull-right" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <p>
+      <div class="list-group">
+        <% @playlist.songs.each do |song| %>
+          <%= link_to song, class: "list-group-item" do %>
+                <h4 class="list-group-item-heading"><%= song.title %></h4>
+                <p class="list-group-item-text"><%= song.artist %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </p>
+  </div>
+</div>
