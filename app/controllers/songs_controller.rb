@@ -4,7 +4,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.where(:user => current_user)
+    @songs = Song.where(:user => current_user).order(title: :asc)
   end
 
   # GET /songs/1
@@ -37,6 +37,7 @@ class SongsController < ApplicationController
     @song.user = current_user
     @song.rating = 0
     @song.number_of_practices = 0
+    @song.last_practiced = DateTime.now
 
     respond_to do |format|
       if @song.save

@@ -1,6 +1,4 @@
-<h1>Editing Song</h1>
+<h2>Edit Song</h2>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @song %> |
-<%= link_to 'Back', songs_path %>
+<%= render partial: 'form', :locals => {:buttontext => "Save"} %><br>
+<%= link_to 'Delete Song', @song, method: :delete, class: "btn btn-danger" %>
