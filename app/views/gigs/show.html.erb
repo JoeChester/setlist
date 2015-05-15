@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @gig.date %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @gig.location %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @gig.comment %>
-</p>
-
-<p>
-  <strong>Playlist:</strong>
-  <%= @gig.playlist.name %>
-</p>
-
-<%= link_to 'Edit', edit_gig_path(@gig) %> |
-<%= link_to 'Back', gigs_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="list-group list-group-item">
+      <div class="row">
+        <div class="col-md-6">
+          <h4 class="list-group-item-heading"><%= @gig.date.strftime("%d.%m.%Y") %></h4>
+          <p class="list-group-item-text"> <%= @gig.location %> - <%= @gig.comment %></p>
+        </div>
+        <div class="col-md-6">
+          <%= link_to '<span class="ion-edit"></span>'.html_safe, edit_gig_path(@gig), class: "btn btn-default btn-lg pull-right" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <p>
+      <div class="list-group">
+          <%= link_to @gig.playlist, class: "list-group-item" do %>
+                <h4 class="list-group-item-heading">Playlist: <%= @gig.playlist.name %></h4>
+                <p class="list-group-item-text"><%= @gig.playlist.description %></p>
+          <% end %>
+      </div>
+    </p>
+  </div>
+</div>

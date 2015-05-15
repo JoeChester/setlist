@@ -1,6 +1,4 @@
-<h1>Editing Gig</h1>
+<h3>Editing Gig</h3>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @gig %> |
-<%= link_to 'Back', gigs_path %>
+<%= render partial: 'form', :locals => {:buttontext => "Save"} %><br>
+<%= link_to 'Delete Gig', @gig, method: :delete, class: "btn btn-danger newmargin" %> <br>

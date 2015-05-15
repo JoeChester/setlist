@@ -34,3 +34,7 @@
 .newmargin{
   margin-bottom: 1rem !important;
 }
+
+.custom-dateselect{
+  min-width: 10%;
+}
