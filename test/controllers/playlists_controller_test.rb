@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class PlaylistsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    sign_in User.first
     @playlist = playlists(:one)
   end
 

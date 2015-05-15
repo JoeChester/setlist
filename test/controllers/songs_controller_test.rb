@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class SongsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    sign_in User.first
     @song = songs(:one)
   end
 

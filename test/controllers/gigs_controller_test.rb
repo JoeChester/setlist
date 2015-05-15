@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class GigsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    sign_in User.first
     @gig = gigs(:one)
   end
 
