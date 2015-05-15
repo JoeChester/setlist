@@ -35,6 +35,8 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     @song.user = current_user
+    @song.rating = 0
+    @song.number_of_practices = 0
 
     respond_to do |format|
       if @song.save

@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="list-group list-group-item active">
+      <div class="row">
+        <div class="col-md-6">
+          <h4 class="list-group-item-heading"><%= @song.title %></h4>
+          <p class="list-group-item-text"><%= @song.artist %></p>
+        </div>
+        <div class="col-md-6">
+          <a class="btn btn-default btn-lg" href="/random" role="button"><span class="ion-refresh" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <p>
+      <%= @song.comment %>
+    </p>
+    <div class="sl-grey">
+    Last practiced: <%= @song.last_practiced.strftime("%d.%m.%Y") %> | <%= @song.number_of_practices %> times
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default">Left</button>
+      <button type="button" class="btn btn-default">Middle</button>
+      <button type="button" class="btn btn-default">Right</button>
+    </div>
+  </div>
+</div>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @song.rating %>
+</p>
+
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
