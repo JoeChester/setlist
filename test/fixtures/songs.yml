@@ -1,17 +1,28 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  artist: MyString
+  title: It's my life
+  artist: Bon Jovi
   rating: 1
   last_practiced: 2015-05-12 14:34:42
   number_of_practices: 1
-  comment: MyText
+  comment: Em
+  user_id: 1
 
 two:
-  title: MyString
-  artist: MyString
+  title: BOBD
+  artist: Green Day
   rating: 1
   last_practiced: 2015-05-12 14:34:42
   number_of_practices: 1
-  comment: MyText
+  comment: Originaltonart
+  user_id: 1
+
+three:
+  title: Let it go
+  artist: Frozen
+  rating: 1
+  last_practiced: 2015-05-12 14:34:42
+  number_of_practices: 1
+  comment: Am Capo 4
+  user_id: 2
