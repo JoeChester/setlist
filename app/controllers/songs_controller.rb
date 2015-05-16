@@ -78,9 +78,13 @@ class SongsController < ApplicationController
   #GET /songs/random.json
   def random
     @song = Song.where(:user => current_user).sample
-    respond_to do |format|
-      format.html
-      format.json { render json: @song }
+    if @song
+      respond_to do |format|
+        format.html
+        format.json { render json: @song }
+    else
+      format.html { redirect_to songs_url, notice: 'No Songs created yet.' }
+      format.json { head :no_content }
     end
   end
 
