@@ -175,6 +175,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  nokogiri (~> 1.6.6.2)
   pg
   quiet_assets
   rails (= 4.2.1)

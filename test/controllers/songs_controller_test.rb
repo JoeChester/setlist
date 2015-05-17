@@ -4,8 +4,12 @@ class SongsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    sign_in User.first
+    @user = User.first
+    @megan = users(:megan)
+    sign_in @user
     @song = songs(:one)
+    @bobd_song = songs(:two)
+    @other_song = songs(:three)
   end
 
   test "should get index" do
@@ -30,6 +34,72 @@ class SongsControllerTest < ActionController::TestCase
   test "should show song" do
     get :show, id: @song
     assert_response :success
+  end
+
+  test "should not show song of other user" do
+    get :show, id: @other_song
+    assert_redirected_to songs_path
+  end
+
+  test "should get random" do
+    get :random
+    assert_includes(Song.where(:user => @user), assigns(:song))
+  end
+
+  test "should redirect when no songs are created" do
+    sign_in @megan
+    get :random
+    assert_redirected_to songs_path
+    sign_in @user
+  end
+
+  test "should increase practice counter" do
+    before = @song.number_of_practices
+    get :practice, id: @song
+    after = assigns(:song).number_of_practices
+    assert_equal(before + 1, after)
+  end
+
+  test "should not practice songs of other users" do
+    sign_in @megan
+    get :practice, id: @song
+    assert_redirected_to songs_path
+    sign_in @user
+  end
+
+  test "should upvote songs" do
+    before = @song.rating
+    get :upvote, id: @song
+    after = assigns(:song).rating
+    assert_equal(before + 1, after)
+  end
+
+  test "should not upvote songs of other users" do
+    sign_in @megan
+    get :upvote, id: @song
+    assert_redirected_to songs_path
+    sign_in @user
+  end
+
+  test "should downvote songs" do
+    before = @song.rating
+    get :downvote, id: @song
+    after = assigns(:song).rating
+    assert_equal(before - 1, after)
+  end
+
+  test "should not downvote unrated songs" do
+    before = @bobd_song.rating #this is 0
+    get :downvote, id: @bobd_song
+    after = assigns(:song).rating
+    assert_equal(before, after)
+  end
+
+  test "should not downvote songs of other users" do
+    sign_in @megan
+    get :downvote, id: @song
+    assert_redirected_to songs_path
+    sign_in @user
   end
 
   test "should get edit" do
