@@ -47,6 +47,7 @@ group :development, :test do
 
   # Needed for travis for some reason?
   gem 'nokogiri', '~> 1.6.6.2'
+  gem 'loofah', '~> 2.0.1'
 
   gem 'quiet_assets'
   gem 'simplecov'
