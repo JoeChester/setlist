@@ -1,6 +1,6 @@
 <%= form_for(@playlist) do |f| %>
   <% if @playlist.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@playlist.errors.count, "error") %> prohibited this playlist from being saved:</h2>
 
       <ul>
