@@ -16,9 +16,9 @@ end
 SimpleCov.at_exit do
   SimpleCov.result.format!
   result = (SimpleCov.result.covered_percent * $test_result)
-  File.open(Rails.root + "log/klausur.log", 'a'){|f| f.write "['#{Time.now}',#{SimpleCov.result.covered_percent},#{$test_result},#{result}]\n" }
+  File.open(Rails.root + "log/setlist.log", 'a'){|f| f.write "['#{Time.now}',#{SimpleCov.result.covered_percent},#{$test_result},#{result}]\n" }
   puts "\n" + "=" * 34
-  puts " Projektergebnis: %.2f%% von 100%" % [result]
+  puts " Project Result: %.2f%% of 100%" % [result]
   puts "=" * 34
 end
 
