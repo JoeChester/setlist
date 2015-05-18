@@ -13,7 +13,7 @@ class IntegrationTest < ActionDispatch::IntegrationTest
     assert_equal 'random', @controller.action_name
   end
 
-  test 'links in navigation bar' do
+  test 'should have links in navigation bar' do
     get '/random'
     assert_select 'a[href="/songs"]', 'Songs'
     assert_select 'a[href="/random"]', 'Random'
@@ -27,10 +27,20 @@ class IntegrationTest < ActionDispatch::IntegrationTest
     assert_select 'label[for="playlist_song_ids_22"]', "Green Day - BOBD"
   end
 
-  test "should show songs" do
+  test "should show songs list" do
     get "/songs"
     assert_select 'h4.list-group-item-heading', "It's my life"
     assert_select 'h4.list-group-item-heading', "BOBD"
+  end
+
+  test "should show gigs list" do
+    get "/gigs"
+    assert_select 'p.list-group-item-text', "Karlsruhe - No comments"
+  end
+
+  test "should show playlist list" do
+    get "/playlists"
+    assert_select 'h4.list-group-item-heading', "OpenAir"
   end
 
 end

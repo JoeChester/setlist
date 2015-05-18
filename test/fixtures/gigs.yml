@@ -2,14 +2,14 @@
 
 one:
   date: 2015-05-12 18:57:06
-  location: MyString
-  comment: MyText
+  location: Karlsruhe
+  comment: No comments
   user_id: 1
   playlist_id: 3
 
 two:
   date: 2015-05-12 18:57:06
-  location: MyString
+  location: Obergeis
   comment: MyText
   user_id: 2
   playlist_id: 4

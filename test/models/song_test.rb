@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class SongTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'should be invalid without title' do
+    assert_no_difference 'Song.count' do
+      Song.new(:title => "").save()
+    end
+  end
+
 end

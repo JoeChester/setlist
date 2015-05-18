@@ -6,6 +6,7 @@ class GigsControllerTest < ActionController::TestCase
   setup do
     sign_in User.first
     @gig = gigs(:one)
+    @playlist = playlists(:one)
   end
 
   test "should get index" do
@@ -21,7 +22,7 @@ class GigsControllerTest < ActionController::TestCase
 
   test "should create gig" do
     assert_difference('Gig.count') do
-      post :create, gig: { comment: @gig.comment, date: @gig.date, location: @gig.location }
+      post :create, gig: { comment: @gig.comment, date: @gig.date, location: @gig.location, playlist_id: @playlist.id }
     end
 
     assert_redirected_to gig_path(assigns(:gig))

@@ -3,4 +3,5 @@ rvm:
 - 2.1.4
 before_script: "bundle exec rake db:drop db:create db:migrate"
 script: "bundle exec rake test"
-
+notifications:
+  email: false
