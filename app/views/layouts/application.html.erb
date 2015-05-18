@@ -3,15 +3,28 @@
 <head>
   <title>Setlist</title>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//bootswatch.com/paper/bootstrap.min.css">
+  <link rel="stylesheet" href="//bootswatXch.com/paper/bootstrap.min.css">
   <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <!-- Favicons -->
+  <% %w(57 60 72 76 114 120 144 152 180).each do |s| %>
+    <%= favicon_link_tag "favicon/apple-touch-icon-#{s}x#{s}.png", rel: 'apple-touch-icon', type: 'image/png', sizes: "#{s}x#{s}" %>
+  <% end %>
+  <% %w(16 32 96).each do |s| %>
+      <%= favicon_link_tag "favicon/favicon-#{s}x#{s}.png", rel: 'icon', type: 'image/png', sizes: "#{s}x#{s}" %>
+  <% end %>
+  <%= favicon_link_tag "favicon/android-icon-192x192.png", rel: 'icon', type: 'image/png', sizes: "192x192" %>
+  <link rel="manifest" href="//assets/image/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="//assets/image/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#7b1fa2">
 
 </head>
 <body>

@@ -1,6 +1,6 @@
 <%= form_for(@gig) do |f| %>
   <% if @gig.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
+    <div id="error_explanation" class="alert alert-danger setlist-alert">
       <h2><%= pluralize(@gig.errors.count, "error") %> prohibited this gig from being saved:</h2>
 
       <ul>
