@@ -4,7 +4,10 @@
 Setlist
 =======
 
-Your new little helper app for musician/band rehearsals.
+Your new little helper app for musician/band rehearsals. 
+Manage your repertoire, arrange songs to playlists and manage your gigs and the setlists of them. 
+The random mode suggests you random songs that you can practice at your rehearsals.
+
 Created as a project for my Ruby on Rails Class at
 university.
 
